@@ -4,12 +4,24 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: 'listado-noticias',
     pathMatch: 'full'
   },
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
+  },
+  {
+    path: 'listado-noticias',
+    loadChildren: () => import('./listado-noticias/listado-noticias.module').then(m => m.ListadoNoticiasPageModule)
+  },
+  {
+    path: 'detalle-noticia',
+    loadChildren: () => import('./detalle-noticia/detalle-noticia.module').then(m => m.DetalleNoticiaPageModule)
+  },
+  {
+    path: 'agregar',
+    loadChildren: () => import('./agregar/agregar.module').then(m => m.AgregarPageModule)
   }
 ];
 
@@ -19,4 +31,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
